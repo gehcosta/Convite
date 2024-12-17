@@ -52,7 +52,7 @@ body {
 }
 
 .names {
-  width: calc(100% - 4rem);
+  width: 100%;
   max-width: 400px;
 }
 
