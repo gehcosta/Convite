@@ -1,3 +1,11 @@
+
+// Adiciona um evento de clique ao botão de confirmação
+document.getElementById("confirmButton").addEventListener("click", function(event) {
+
+    //    Colocar método fetch para enviar a confirmação para o servidor
+});
+
+// Adiciona um evento de clique ao botão de mapa
 document.getElementById("mapButton").addEventListener("click", function(event) {
     event.preventDefault(); // Previne o comportamento padrão de navegação
 
