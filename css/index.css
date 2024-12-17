@@ -45,9 +45,9 @@ body {
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-height: 60%; 
-  height: auto; 
-  justify-content: space-between;
+  min-height: 60%; /* Garante que o frame tenha pelo menos 60% da altura da tela */
+  height: auto; /* Permite que o conteúdo dentro da frame expanda conforme necessário */
+  justify-content: space-between; /* Garante que o conteúdo tenha espaçamento entre as seções */
 }
 
 .names {
@@ -99,6 +99,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
   .frame {
     padding: 1.5rem;
   }
