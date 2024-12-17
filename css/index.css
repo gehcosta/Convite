@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+IT+Trad:wght@100..400&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-
 * {
   margin: 0;
   padding: 0;
@@ -14,23 +13,25 @@
   --text-font: "Playwrite IT Trad", sans-serif;
   --subtitle-color: rgb(209, 73, 39);
   --subtitle-font: "Funnel Sans", sans-serif;
-;
-
   --padding-section: 2rem;
 }
 
 body {
-  height: 100vh;
   width: 100vw;
   background-color: rgba(61, 61, 61, 0);
   background-image:
-          linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
-          url("../img/flowers.png");
+    linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
+    url("../img/flowers.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 2rem;
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  overflow-y: auto;
+  overflow-x: clip;
 }
 
 .frame {
@@ -45,6 +46,9 @@ body {
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 60%; 
+  height: auto; 
+  justify-content: space-between;
 }
 
 .names {
@@ -59,7 +63,6 @@ body {
   color: var(--subtitle-color);
   margin-bottom: 0.5rem;
   font-family: var(--subtitle-font);
-
 }
 
 .text {
@@ -68,7 +71,6 @@ body {
   line-height: 1.5;
   font-size: 1rem;
   font-family: var(--text-font);
-
 }
 
 .date {
@@ -109,5 +111,4 @@ body {
   .text {
     font-size: 0.9rem;
   }
-  
 }
