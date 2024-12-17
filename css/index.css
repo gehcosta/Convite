@@ -20,8 +20,8 @@ body {
   width: 100vw;
   background-color: rgba(61, 61, 61, 0);
   background-image:
-    linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
-    url("../img/flowers.png");
+          linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
+          url("../img/flowers.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,9 +29,8 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: center; 
-  align-items: flex-start; 
+  align-items: flex-start;
   overflow-y: auto;
-  overflow-x: clip;
 }
 
 .frame {
