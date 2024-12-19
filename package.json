@@ -1,0 +1,25 @@
+{
+  "name": "convite",
+  "version": "1.0.0",
+  "description": "Casamento de Geovanne e Bruna",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gehcosta/Convite.git"
+  },
+  "author": "Geovanne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gehcosta/Convite/issues"
+  },
+  "homepage": "https://github.com/gehcosta/Convite#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql": "^2.18.1"
+  }
+}
