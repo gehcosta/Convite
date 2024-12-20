@@ -33,7 +33,7 @@ body {
   overflow-y: auto;
 }
 
-.frame {
+.frame, .framePix {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,6 +50,10 @@ body {
   justify-content: space-between;
 }
 
+.framePix {
+  gap: 0;
+}
+
 .names {
   width: 100%;
   max-width: 400px;
@@ -64,13 +68,17 @@ body {
   font-family: var(--subtitle-font);
 }
 
-.text {
+.text, .textPix {
   text-align: center;
   color: var(--text-color);
   line-height: 1.5;
   font-size: 1rem;
   font-family: var(--text-font);
   color: #343472;
+}
+
+.textPix {
+  font-family: var(--subtitle-font);
 }
 
 .date {
@@ -84,7 +92,7 @@ body {
 }
 
 
-.button {
+.button, .buttonPix {
   background-color: var(--primary-color);
   padding: 1rem;
   border-radius: 50%;
@@ -96,8 +104,34 @@ body {
   border: none;
 }
 
-.button:hover {
+.buttonsContainerPix {
+  display: flex;
+  width: 100%;
+}
+
+.buttonPix {
+  padding: 0.3rem;
+}
+
+.button:hover, .buttonPix:hover {
   background-color: var(--primary-hover);
+}
+
+
+.pixCode {
+  color: var(--primary-color);
+  font-family: var(--subtitle-font);
+  margin-bottom: 0.3rem;
+}
+
+.pixQRCode {
+  width: 25%;
+  border-radius: 0.3rem;
+  border: 1px solid #343472;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 2px 2px 7px 3px rgba(0, 0, 0, 0.1);
+  height: auto;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
