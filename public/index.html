@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Convite de Casamento B&G</title>
-  <link rel="stylesheet" href="./index.css">
   <meta name="description" content="Convite de casamento Geovanne & Bruna">
 
   <meta property="og:title" content="Convite de casamento Geovanne & Bruna">
@@ -67,6 +66,137 @@
   });
 
 </script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+IT+Trad:wght@100..400&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --primary-color: #D14927FF;
+    --primary-hover: #b43d21;
+    --text-color: #333;
+    --text-font: "Playwrite IT Trad", sans-serif;
+    --subtitle-color: rgb(209, 73, 39);
+    --subtitle-font: "Funnel Sans", sans-serif;
+    --padding-section: 2rem;
+  }
+
+  body {
+    width: 100vw;
+    background-color: rgba(61, 61, 61, 0);
+    background-image:
+            linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
+            url("img/flowers.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.3rem;
+    border: 2px solid var(--subtitle-color);
+    padding: var(--padding-section);
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 60%;
+    height: auto;
+    justify-content: space-between;
+  }
+
+  .names {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--subtitle-color);
+    margin-bottom: 0.5rem;
+    font-family: var(--subtitle-font);
+  }
+
+  .text {
+    text-align: center;
+    color: var(--text-color);
+    line-height: 1.5;
+    font-size: 1rem;
+    font-family: var(--text-font);
+  }
+
+  .date {
+    font-weight: bold;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .button:hover {
+    background-color: var(--primary-hover);
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+    }
+
+    .frame {
+      padding: 1.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+    }
+
+    .text {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    body {
+      background-attachment: scroll;
+    }
+
+    .frame {
+      min-height: 60%;
+    }
+  }
+
+</style>
 
 </body>
 </html>
