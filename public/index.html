@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Convite de Casamento B&G</title>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="index.css">
   <meta name="description" content="Convite de casamento Geovanne & Bruna">
 
   <meta property="og:title" content="Convite de casamento Geovanne & Bruna">
@@ -43,8 +43,30 @@
   </div>
 </section>
 
-<script src="index.js"></script>
-<script src="server.js"></script>
+<script>
+  
+  const urlString = window.location.href; 
+  const nomeConvidado = urlString.split('/').pop();
+  
+  console.log(nomeConvidado);
+
+  // Abre o mapa de preferência do usuário
+  document.getElementById("mapButton").addEventListener("click", function(event) {
+    event.preventDefault(); 
+
+    let isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    let latitude = -23.778833;
+    let longitude = -46.589000;
+
+    // Se for um dispositivo móvel, tenta usar o esquema geo
+    if (isMobile) {
+      window.location.href = `geo:${latitude},${longitude}?q=Chácara+de+Boa+na+Lagoa`;
+    } else {
+      window.open(`https://maps.app.goo.gl/YZRiLRsn1xKa4pMh8`, "_blank");
+    }
+  });
+
+</script>
 
 </body>
 </html>
