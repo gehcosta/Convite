@@ -76,12 +76,6 @@ body {
   font-weight: bold;
 }
 
-.buttonsContainer {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
 .button {
   background-color: var(--primary-color);
   padding: 1rem;

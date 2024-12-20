@@ -30,7 +30,8 @@
   <p class="text date">Dia <strong>25 de janeiro de 2025</strong> às <strong>13:30h</strong></p>
   <p class="text date">Na Chácara <em>de Boa na Lagoa</em></p>
 
-  <div class="buttonsContainer">
+    <p class="text"><b>Localização:</b></p>
+  <div class="">
 
     <a class="button" id="mapButton" rel="noopener noreferrer" title="Ver localização" aria-label="Ver localização">
       <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
@@ -41,7 +42,6 @@
 </section>
 
 <script>
-  
   // Lista de convidados e textos associados
   const convidados = {
     "Eriel&Eliene": "Eriel e Eliene",
@@ -72,8 +72,8 @@
     "Vinicius": "Vinícius e esposa"
   };
 
-  const urlParams = window.location.pathname.split('/'); // Divide a URL
-  const convidadoNome = urlParams[urlParams.length - 1]; // Pega o último segmento da URL
+  const urlParams = window.location.pathname.split('/'); 
+  const convidadoNome = urlParams[urlParams.length - 1];
   console.log(convidadoNome);
 
   const elementoConvidado = document.getElementById("convidadoNome");
