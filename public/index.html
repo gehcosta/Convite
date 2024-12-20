@@ -78,9 +78,9 @@
 
   const elementoConvidado = document.getElementById("convidadoNome");
   if (convidados[convidadoNome]) {
-    elementoConvidado.textContent = `Bem-vindo(a), ${convidados[convidadoNome]}!`;
+    elementoConvidado.textContent = convidados[convidadoNome];
   }else{
-    elementoConvidado.textContent = `você`;
+    elementoConvidado.textContent = "você";
   }
 </script>
 
