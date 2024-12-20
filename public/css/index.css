@@ -17,7 +17,7 @@
 }
 
 .bodyConvite, .bodyPix {
-  width: 100vw;
+  width: 100dvw;
   background-color: rgba(61, 61, 61, 0);
   background-image:
           url("../img/flowers.png");
@@ -33,7 +33,7 @@
 }
 
 .bodyPix {
-  height: 100vh;
+  height: 100dvh;
 }
 
 .frame, .framePix {
