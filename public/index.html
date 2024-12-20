@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Convite de Casamento B&G</title>
+  <link rel="stylesheet" href="css/index.css">
   <meta name="description" content="Convite de casamento Geovanne & Bruna">
 
   <meta property="og:title" content="Convite de casamento Geovanne & Bruna">
@@ -14,7 +15,6 @@
   <meta property="og:image" content="https://i.ibb.co/PhhvX67/bg-photo-short-11zon.jpg">
   <meta name="theme-color" content="#fafafa">
 
-  <link rel="stylesheet" href="index.css">
   <link rel="icon" href="img/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="img/icon.png">
 </head>
@@ -31,6 +31,7 @@
   <p class="text date">Na Chácara <em>de Boa na Lagoa</em></p>
 
   <div class="buttonsContainer">
+
     <a class="button" id="mapButton" rel="noopener noreferrer" title="Ver localização" aria-label="Ver localização">
       <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
         <path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"/>
@@ -39,25 +40,7 @@
   </div>
 </section>
 
-<script>
-
-  // Abre o mapa de preferência do usuário
-  document.getElementById("mapButton").addEventListener("click", function(event) {
-    event.preventDefault(); 
-
-    let isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-    let latitude = -23.778833;
-    let longitude = -46.589000;
-
-    // Se for um dispositivo móvel, tenta usar o esquema geo
-    if (isMobile) {
-      window.location.href = `geo:${latitude},${longitude}?q=Chácara+de+Boa+na+Lagoa`;
-    } else {
-      window.open(`https://maps.app.goo.gl/YZRiLRsn1xKa4pMh8`, "_blank");
-    }
-  });
-
-</script>
+<script src="js/index.js"></script>
 
 </body>
 </html>
