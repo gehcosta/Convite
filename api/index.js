@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 // Conexão com o banco de dados MySQL
 const db = mysql.createConnection({
