@@ -30,8 +30,11 @@ const convidados = {
 
 const urlParams = window.location.pathname.split('/'); // Divide a URL
 const convidadoNome = urlParams[urlParams.length - 1]; // Pega o último segmento da URL
+console.log(convidadoNome);
 
 const elementoConvidado = document.getElementById("convidadoNome");
 if (convidados[convidadoNome]) {
     elementoConvidado.textContent = `Bem-vindo(a), ${convidados[convidadoNome]}!`;
+}else{
+    elementoConvidado.textContent = `Convidado(a) não encontrado!`;
 }
