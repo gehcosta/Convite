@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
@@ -9,9 +10,8 @@ const db = mysql.createConnection({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
 });
-
 
 // Verifique se a conexão foi bem-sucedida
 db.connect((err) => {
@@ -22,42 +22,37 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados');
 });
 
-// Middleware para permitir requisições JSON
+// Middleware para requisições JSON e cookies
 app.use(express.json());
+app.use(cookieParser());
 
-// // Rota de exemplo para obter informações do convidado
-// app.get('/api/convidado/:nome', (req, res) => {
-//     const nomeConvidado = req.params.nome;
-//
-//     // Query SQL para buscar o convidado
-//     db.query('SELECT * FROM convidados WHERE nome = ?', [nomeConvidado], (err, results) => {
-//         if (err) {
-//             console.error('Erro ao consultar o banco de dados', err);
-//             return res.status(500).send('Erro ao acessar o banco de dados');
-//         }
-//
-//         if (results.length > 0) {
-//             res.json({ nome: results[0].nome, id: results[0].id });
-//         } else {
-//             res.status(404).send('Convidado não encontrado');
-//         }
-//     });
-// });
-//
-// // Rota para inserir um novo convidado
-// app.post('/api/inserir', (req, res) => {
-//     const { nome } = req.body;
-//
-//     // Query SQL para inserir o convidado
-//     db.query('INSERT INTO convidados (nome) VALUES (?)', [nome], (err, results) => {
-//         if (err) {
-//             console.error('Erro ao inserir convidado', err);
-//             return res.status(500).send('Erro ao inserir convidado');
-//         }
-//
-//         res.json({ message: 'Convidado confirmado!', id: results.insertId });
-//     });
-// });
+// Definir um cookie em um endpoint
+app.get('/set-cookie', (req, res) => {
+    res.cookie('cookieName', 'cookieValue', {
+        sameSite: 'None', // Necessário para uso entre sites
+        secure: true,     // Requer HTTPS
+        httpOnly: true,   // Protege contra acesso via JavaScript
+        maxAge: 3600000,  // Expira em 1 hora
+    });
+    res.send('Cookie configurado com sucesso!');
+});
+
+// Endpoint para obter o cookie
+app.get('/get-cookie', (req, res) => {
+    const cookieValue = req.cookies['cookieName'];
+    res.json({ cookieValue });
+});
+
+// Endpoint de teste para acessar o banco de dados
+app.get('/api/teste', (req, res) => {
+    db.query('SELECT NOW() AS currentTime', (err, results) => {
+        if (err) {
+            console.error('Erro ao executar consulta:', err);
+            return res.status(500).json({ error: 'Erro no banco de dados' });
+        }
+        res.json({ currentTime: results[0].currentTime });
+    });
+});
 
 // Iniciar o servidor
 app.listen(port, () => {

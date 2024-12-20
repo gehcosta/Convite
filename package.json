@@ -4,7 +4,7 @@
   "description": "Casamento de Geovanne e Bruna",
   "main": "api/index.js",
   "scripts": {
-    "dev": "node server.js",  
+    "dev": "node server.js",
     "build": "echo 'Nothing to build' && exit 0",
     "start": "node server.js"
   },
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gehcosta/Convite#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
