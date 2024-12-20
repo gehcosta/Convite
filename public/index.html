@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://i.ibb.co/PhhvX67/bg-photo-short-11zon.jpg">
   <meta name="theme-color" content="#fafafa">
 
+  <link rel="stylesheet" href="index.css">
   <link rel="icon" href="img/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="img/icon.png">
 </head>
@@ -30,10 +31,6 @@
   <p class="text date">Na Chácara <em>de Boa na Lagoa</em></p>
 
   <div class="buttonsContainer">
-    <button class="button" id="confirmButton" title="Confirmar presença" aria-label="Confirmar presença">
-      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-    </button>
-
     <a class="button" id="mapButton" rel="noopener noreferrer" title="Ver localização" aria-label="Ver localização">
       <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
         <path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"/>
@@ -43,11 +40,6 @@
 </section>
 
 <script>
-  
-  const urlString = window.location.href; 
-  const nomeConvidado = urlString.split('/').pop();
-  
-  console.log(nomeConvidado);
 
   // Abre o mapa de preferência do usuário
   document.getElementById("mapButton").addEventListener("click", function(event) {
@@ -66,137 +58,6 @@
   });
 
 </script>
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+IT+Trad:wght@100..400&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --primary-color: #D14927FF;
-    --primary-hover: #b43d21;
-    --text-color: #333;
-    --text-font: "Playwrite IT Trad", sans-serif;
-    --subtitle-color: rgb(209, 73, 39);
-    --subtitle-font: "Funnel Sans", sans-serif;
-    --padding-section: 2rem;
-  }
-
-  body {
-    width: 100vw;
-    background-color: rgba(61, 61, 61, 0);
-    background-image:
-            linear-gradient(0, rgb(246, 246, 246) 52%, rgba(219, 151, 151, 0) 100%),
-            url("img/flowers.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow-y: auto;
-  }
-
-  .frame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 0.3rem;
-    border: 2px solid var(--subtitle-color);
-    padding: var(--padding-section);
-    max-width: 700px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: 60%;
-    height: auto;
-    justify-content: space-between;
-  }
-
-  .names {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .subtitle {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--subtitle-color);
-    margin-bottom: 0.5rem;
-    font-family: var(--subtitle-font);
-  }
-
-  .text {
-    text-align: center;
-    color: var(--text-color);
-    line-height: 1.5;
-    font-size: 1rem;
-    font-family: var(--text-font);
-  }
-
-  .date {
-    font-weight: bold;
-  }
-
-  .buttonsContainer {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-
-  .button {
-    background-color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    border: none;
-  }
-
-  .button:hover {
-    background-color: var(--primary-hover);
-  }
-
-  @media (max-width: 768px) {
-    body {
-      background-attachment: scroll;
-    }
-
-    .frame {
-      padding: 1.5rem;
-    }
-
-    .subtitle {
-      font-size: 1.5rem;
-    }
-
-    .text {
-      font-size: 0.9rem;
-    }
-  }
-
-  @media (max-width: 768px) and (orientation: landscape) {
-    body {
-      background-attachment: scroll;
-    }
-
-    .frame {
-      min-height: 60%;
-    }
-  }
-
-</style>
 
 </body>
 </html>
