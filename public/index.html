@@ -81,55 +81,74 @@
     "Vinicius": "Vinícius e esposa"
   };
 
-  const urlParams = window.location.pathname.split('/');
-  const convidadoNome = urlParams[urlParams.length - 1];
-  console.log(convidadoNome);
-
   const elementoConvidado = document.getElementById("convidadoNome");
   if (convidados[convidadoNome]) {
     elementoConvidado.textContent = convidados[convidadoNome];
   } else {
     elementoConvidado.textContent = "você";
   }
-  function  inserirConvidado() {
-    const urlString = window.location.href; // Obtém a URL completa
-    const nomePessoa = urlString.split('/').pop(); // Extrai o nome da URL
-    console.log(nomePessoa);
-    // Defina a variável nome com o valor desejado
-    fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI'
-      },
-      body: JSON.stringify([
-        {Nome: nomePessoa} // Usando a variável nomePessoa aqui
-      ])
-    })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Erro na inserção');
-      }
 
-      // Requisição para pegar os dados inseridos
-      return fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
+
+  // Adiciona um evento de clique ao botão de mapa
+  document.getElementById("mapButton").addEventListener("click", function(event) {
+    event.preventDefault(); // Previne o comportamento padrão de navegação
+
+    let isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    let latitude = -23.778833;
+    let longitude = -46.589000;
+
+    // Se for um dispositivo móvel, tenta usar o esquema geo:
+    if (isMobile) {
+      window.location.href = `geo:${latitude},${longitude}?q=Chácara+de+Boa+na+Lagoa`;
+    } else {
+      // Caso contrário, abre o Google Maps no desktop
+      window.open(`https://maps.app.goo.gl/YZRiLRsn1xKa4pMh8`, "_blank");
+    }
+  });
+  
+  function  inserirConvidado() {
+    let resultado = confirm("Deseja confirmar sua presença?");
+    if (resultado) {
+
+      const urlString = window.location.href; // Obtém a URL completa
+      const nomePessoa = urlString.split('/').pop(); // Extrai o nome da URL
+      console.log(nomePessoa);
+      // Defina a variável nome com o valor desejado
+      fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI'
-        }
-      });
-    })
-  
-    .then(response => {
-      if (response.ok) {
-        alert("Presença confirmada!");
-      } else {
-        alert("Ocorreu um erro!");
-      }
-    })
-    .catch(error => {
-      console.error('Erro:', error);
-    })
+        },
+        body: JSON.stringify([
+          {Nome: nomePessoa} // Usando a variável nomePessoa aqui
+        ])
+      })
+              .then(res => {
+                if (!res.ok) {
+                  throw new Error('Erro na inserção');
+                }
+
+                // Requisição para pegar os dados inseridos
+                return fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI'
+                  }
+                });
+              })
+
+              .then(response => {
+                if (response.ok) {
+                  alert("Presença confirmada!");
+                } else {
+                  alert("Ocorreu um erro!");
+                }
+              })
+              .catch(error => {
+                console.error('Erro:', error);
+              })
+    }
   }
 </script>
 
