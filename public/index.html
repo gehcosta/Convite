@@ -33,7 +33,6 @@
   <p class="text date">Dia <strong>25 de janeiro de 2025</strong> às <strong>14:00h</strong></p>
   <p class="text date">Na Chácara <em>de Boa na Lagoa</em></p>
 
-  <p class="text"><b>Localização:</b></p>
   <div class="buttonsContainer">
     <button class="button" id="confirmButton" title="Confirmar presença" aria-label="Confirmar presença" onclick="inserirConvidado()">
       <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
@@ -93,10 +92,10 @@
     elementoConvidado.textContent = "você";
   }
   function  inserirConvidado() {
-    // Defina a variável nome com o valor desejado
     const urlString = window.location.href; // Obtém a URL completa
     const nomePessoa = urlString.split('/').pop(); // Extrai o nome da URL
     console.log(nomePessoa);
+    // Defina a variável nome com o valor desejado
     fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
       method: 'POST',
       headers: {
@@ -120,13 +119,17 @@
         }
       });
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log('Dados inseridos:', data);
+  
+    .then(response => {
+      if (response.ok) {
+        alert("Presença confirmada!");
+      } else {
+        alert("Ocorreu um erro!");
+      }
     })
     .catch(error => {
       console.error('Erro:', error);
-    });
+    })
   }
 </script>
 
