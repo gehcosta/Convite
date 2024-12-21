@@ -18,16 +18,16 @@
 
 .bodyConvite, .bodyPix {
   position: relative;
-  overflow: hidden; /* Garante que o pseudo-elemento não saia da área visível */
+  overflow-x: hidden; /* Apenas oculta overflow horizontal, preservando o scroll vertical */
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem;
 }
 
 .bodyConvite::before, .bodyPix::before {
   content: "";
-  position: absolute;
+  position: fixed; /* Corrige o problema ao manter o fundo fixo */
   top: 0;
   left: 0;
   width: 100%;
@@ -35,8 +35,8 @@
   background-image: url("../img/flowers.png");
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Fica atrás do conteúdo */
-  opacity: 1; /* Mantém a transparência original */
+  z-index: -1; /* Garante que o fundo fique atrás do conteúdo */
+  pointer-events: none; /* Impede que o pseudo-elemento bloqueie cliques ou interações */
 }
 
 
