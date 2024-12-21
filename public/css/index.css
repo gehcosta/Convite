@@ -16,10 +16,6 @@
   --padding-section: 2rem;
 }
 
-html, body {
-  overscroll-behavior: none;
-}
-
 .bodyConvite, .bodyPix {
   width: 100vw;
   background-color: rgba(61, 61, 61, 0);
