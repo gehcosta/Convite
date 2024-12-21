@@ -1,124 +1,55 @@
-<!doctype html>
-<html class="no-js" lang="pt-br">
-
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Convite de Casamento B&G</title>
-  <link rel="stylesheet" href="css/index.css">
-  <meta name="description" content="Convite de casamento Geovanne & Bruna">
-
-  <meta property="og:title" content="Convite de casamento Geovanne & Bruna">
-  <meta property="og:description" content="Convite de casamento Geovanne & Bruna">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="gehcosta.com.br">
-  <meta property="og:image" content="https://i.ibb.co/844B3dt/bg-photo-large-png.jpg">
-  <meta property="og:image:type" content="image/jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="theme-color" content="#fafafa">
-
-  <link rel="icon" href="img/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="img/icon.png">
-
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-    const supabaseUrl = 'https://hdududtiepinbxrajofh.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI';
-
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
-    async function enviarConfirmacao(nome) {
-      const { data, error } = await supabase
-              .from('confirmacoes')
-              .insert([{ nome: nome, confirmacao: true }]);
-
-      if (error) {
-        console.error('Erro ao enviar confirmação:', error);
-      } else {
-        console.log('Confirmação enviada com sucesso!', data);
-      }
-    }
-
-    document.getElementById('confirmButton').addEventListener('click', function() {
-      const convidadoNome = document.getElementById('convidadoNome').textContent;
-      enviarConfirmacao(convidadoNome);
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Insert Example</title>
 </head>
+<body>
+<h1>Inserir Nome na Tabela Pessoas</h1>
 
-<body class="bodyConvite">
-<section class="frame">
-  <img class="names" src="img/names.png" alt="Nomes Bruna e Geovanne">
+<label for="nome">Nome:</label>
+<input type="text" id="nome" placeholder="Digite um nome">
+<button id="insertData">Inserir Nome</button>
 
-  <h2 class="subtitle">Com muita alegria, convidamos <span id="convidadoNome"></span> para celebrar conosco um dia muito especial!</h2>
-  <p class="text">Agradecemos a Deus, que tem nos guiado com seu amor e bênçãos até este momento. Ele tem sido o alicerce de nossa união e é com gratidão que daremos o próximo passo em nossa caminhada juntos.</p>
-  <p class="text">Será um dia repleto de felicidade, risos e, acima de tudo, de gratidão por tudo o que ele tem nos proporcionado.</p>
-  <p class="text">Esperamos você para compartilharmos essa alegria e celebrar o amor que ele nos deu!</p>
-  <p class="text date">Dia <strong>25 de janeiro de 2025</strong> às <strong>14:00h</strong></p>
-  <p class="text date">Na Chácara <em>de Boa na Lagoa</em></p>
-
-  <p class="text"><b>Localização:</b></p>
-  <div class="buttonsContainer">
-    <button class="button" id="confirmButton" title="Confirmar presença" aria-label="Confirmar presença">
-      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-    </button>
-
-    <a class="button" id="mapButton" rel="noopener noreferrer" title="Ver localização" aria-label="Ver localização">
-      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
-        <path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"/>
-      </svg>
-    </a>
-
-    <a class="button"  href="PIX.html" rel="noopener noreferrer" title="Chave PIX" aria-label="Chave PIX">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30" height="30" baseProfile="basic"><path fill="#e8eaed" d="M11.9,12h-0.68l8.04-8.04c2.62-2.61,6.86-2.61,9.48,0L36.78,12H36.1c-1.6,0-3.11,0.62-4.24,1.76 l-6.8,6.77c-0.59,0.59-1.53,0.59-2.12,0l-6.8-6.77C15.01,12.62,13.5,12,11.9,12z"/><path fill="#e8eaed" d="M36.1,36h0.68l-8.04,8.04c-2.62,2.61-6.86,2.61-9.48,0L11.22,36h0.68c1.6,0,3.11-0.62,4.24-1.76 l6.8-6.77c0.59-0.59,1.53-0.59,2.12,0l6.8,6.77C32.99,35.38,34.5,36,36.1,36z"/><path fill="#e8eaed" d="M44.04,28.74L38.78,34H36.1c-1.07,0-2.07-0.42-2.83-1.17l-6.8-6.78c-1.36-1.36-3.58-1.36-4.94,0 l-6.8,6.78C13.97,33.58,12.97,34,11.9,34H9.22l-5.26-5.26c-2.61-2.62-2.61-6.86,0-9.48L9.22,14h2.68c1.07,0,2.07,0.42,2.83,1.17 l6.8,6.78c0.68,0.68,1.58,1.02,2.47,1.02s1.79-0.34,2.47-1.02l6.8-6.78C34.03,14.42,35.03,14,36.1,14h2.68l5.26,5.26 C46.65,21.88,46.65,26.12,44.04,28.74z"/></svg>
-    </a>
-  </div>
-</section>
+<div id="output"></div>
 
 <script>
-  // Lista de convidados e textos associados
-  const convidados = {
-    "Eriel&Eliene": "Eriel e Eliene",
-    "Andreia": "Andréia",
-    "Gilvan": "Gilvan",
-    "Leo&Kathy": "Léo e Kathy",
-    "Kedy&Nicolly": "Kedy e Nicolly",
-    "Jamil&Fabi": "Jamil e Fabi",
-    "Matheus": "Matheus",
-    "Juliana&Jhon": "Juliana, Jhon e crianças",
-    "Joaquim&Maria": "Joaquim e Maria",
-    "Lucas&Juliana": "Lucas, Juliana e filinha",
-    "Silvana&Josue": "Silvana, Josué e Thiago",
-    "Denner": "Denner",
-    "Felipe&Andressa": "Felipe, Andressa e filinho",
-    "Gustavo": "Gustavo",
-    "Everson&Isabelle": "Everson e Isabelle",
-    "Cleo": "Cléo e Família",
-    "Anselmo": "Anselmo",
-    "Anderson": "Anderson",
-    "Gerson": "Gerson",
-    "Elias": "Elias e família",
-    "Marquinhos": "Marquinhos e esposa",
-    "Ana": "Ana e marido",
-    "Miriam": "Miriam",
-    "Nidi": "Nidi",
-    "Caique": "Caique e esposa",
-    "Vinicius": "Vinícius e esposa"
-  };
+  // Defina a URL da sua instância do Supabase e a chave da API
+  const supabaseUrl = 'https://seu-supabase-url.supabase.co';
+  const supabaseKey = 'sua-chave-de-api-anonima';
+  const tableName = 'pessoas'; // Nome da tabela
 
-  const urlParams = window.location.pathname.split('/');
-  const convidadoNome = urlParams[urlParams.length - 1];
-  console.log(convidadoNome);
+  // Função para inserir dados na tabela "pessoas"
+  document.getElementById('insertData').addEventListener('click', () => {
+    const nome = document.getElementById('nome').value;
 
-  const elementoConvidado = document.getElementById("convidadoNome");
-  if (convidados[convidadoNome]) {
-    elementoConvidado.textContent = convidados[convidadoNome];
-  } else {
-    elementoConvidado.textContent = "você";
-  }
+    if (!nome) {
+      alert('Por favor, insira um nome.');
+      return;
+    }
+
+    // Requisição para inserir o nome na tabela
+    fetch(`${supabaseUrl}/rest/v1/${tableName}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Prefer': 'return=representation' // Para retornar o dado inserido
+      },
+      body: JSON.stringify([{ nome: nome }]) // Estrutura do dado a ser inserido
+    })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              document.getElementById('output').innerText = `Nome inserido: ${data[0].nome}`;
+            })
+            .catch(error => {
+              console.error('Erro:', error);
+              document.getElementById('output').innerText = 'Erro ao inserir nome';
+            });
+  });
 </script>
-
 </body>
 </html>
