@@ -94,7 +94,6 @@
   margin-top: 1.5rem;
 }
 
-
 .button, .buttonPix {
   background-color: var(--primary-color);
   padding: 1rem;
@@ -154,4 +153,3 @@
     font-size: 0.9rem;
   }
 }
-
