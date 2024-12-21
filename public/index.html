@@ -81,13 +81,15 @@
     "Vinicius": "Vinícius e esposa"
   };
 
+  const urlParams = window.location.pathname.split('/');
+  const convidadoNome = urlParams[urlParams.length - 1];
+
   const elementoConvidado = document.getElementById("convidadoNome");
   if (convidados[convidadoNome]) {
     elementoConvidado.textContent = convidados[convidadoNome];
   } else {
     elementoConvidado.textContent = "você";
   }
-
 
   // Adiciona um evento de clique ao botão de mapa
   document.getElementById("mapButton").addEventListener("click", function(event) {
@@ -112,7 +114,6 @@
 
       const urlString = window.location.href; // Obtém a URL completa
       const nomePessoa = urlString.split('/').pop(); // Extrai o nome da URL
-      console.log(nomePessoa);
       // Defina a variável nome com o valor desejado
       fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
         method: 'POST',
