@@ -94,23 +94,26 @@
   } else {
     elementoConvidado.textContent = "você";
   }
-  document.getElementById("mapButton").addEventListener("click", function(event) {
+  
+  document.getElementById("mapButton").addEventListener("click", function (event) {
     event.preventDefault(); // Previne o comportamento padrão de navegação
 
-    let isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
     let latitude = -23.778833;
     let longitude = -46.589000;
     let label = "Chácara de Boa na Lagoa";
 
-    if (isMobile) {
-      // Usar um URL universal para mapas no mobile
+    if (/android/i.test(userAgent)) {
+      window.location.href = `geo:${latitude},${longitude}?q=${encodeURIComponent(label)}`;
+    } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
       let mapUrl = `https://maps.apple.com/?ll=${latitude},${longitude}&q=${encodeURIComponent(label)}`;
       window.location.href = mapUrl;
     } else {
-      // Caso contrário, abre o Google Maps no desktop
-      window.open(`https://maps.google.com/?q=${latitude},${longitude}&q=${encodeURIComponent(label)}`, "_blank");
+      let mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&q=${encodeURIComponent(label)}`;
+      window.open(mapUrl, "_blank");
     }
   });
+
 
   
   function  inserirConvidado() {
