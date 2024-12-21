@@ -140,8 +140,10 @@
 @media (max-width: 768px) {
   .bodyConvite, .bodyPix {
     background-attachment: scroll;
-    background-size: cover;
-    height: 100vh;
+    background-size: cover; /* Certifica-se de que o fundo cubra toda a tela */
+    height: 100vh; /* Garantir que a altura seja exatamente 100% da tela */
+    display: flex;
+    flex-direction: column;
   }
   
   .frame {
