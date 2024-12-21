@@ -108,26 +108,32 @@
       window.open(`https://maps.app.goo.gl/YZRiLRsn1xKa4pMh8`, "_blank");
     }
   });
+  
+  // Função assíncrona para enviar dados
+  async function enviarNome() {
+    const nomePessoa = 'João'; // Nome da pessoa que você deseja enviar
 
-  const nomePessoa = 'João'; // Nome da pessoa que você deseja enviar
+    try {
+      // Enviar o dado para o Supabase
+      const response = await fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Indica que o corpo é JSON
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI',
+          'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI',
+        },
+        body: JSON.stringify({ nome: nomePessoa }) // Enviando o nome no corpo da requisição
+      });
 
-  // Enviar o dado para o Supabase
-  const response = await fetch('https://hdududtiepinbxrajofh.supabase.co/rest/v1/pessoas', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json', // Indica que o corpo é JSON
-      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkdWR1ZHRpZXBpbmJ4cmFqb2ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MzI1NDUsImV4cCI6MjA1MDMwODU0NX0.y3NB_yi95Xz5kx_-BVo8alKon16vmxu8m8w5uSqRQlI',
-    },
-    body: JSON.stringify({ nome: nomePessoa }) // Enviando o nome no corpo da requisição
-  })
-          .then(res => res.json())
-          .then(data => {
-            console.log('Nome enviado com sucesso:', data);
-          })
-          .catch(error => {
-            console.error('Erro ao enviar nome:', error);
-          });
+      const data = await response.json();
+      console.log('Nome enviado com sucesso:', data);
+    } catch (error) {
+      console.error('Erro ao enviar nome:', error);
+    }
+  }
+
+  // Chama a função
+  enviarNome();
 
 
 </script>
