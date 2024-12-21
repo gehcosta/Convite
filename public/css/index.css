@@ -140,7 +140,8 @@
 @media (max-width: 768px) {
   .bodyConvite, .bodyPix {
     background-attachment: scroll;
-    background-size: contain;
+    background-size: cover;
+    height: 100vh;
   }
   
   .frame {
